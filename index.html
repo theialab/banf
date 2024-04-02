@@ -39,6 +39,7 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 <body>
 
@@ -219,38 +220,138 @@
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          Largely due to their implicit nature, neural fields lack a direct mechanism for filtering, as Fourier analysis from discrete signal processing is not directly applicable to these representations.
-Effective filtering of neural fields is critical to enable level-of-detail processing in downstream applications, and support operations that involve sampling the field on regular grids (e.g. marching cubes).
-Existing methods that attempt to decompose neural fields in the frequency domain either resort to heuristics, or require extensive modifications to the neural field architecture.
-We show that via a simple modification, one can obtain neural fields that are low-pass filtered, and in turn show how this can be exploited to obtain a frequency decomposition of the entire signal.
-We demonstrate the validity of our technique by investigating level-of-detail reconstruction, and showing how coarser representations can be computed effectively.
-        </div>
       </div>
     </div>
-    <!--/ Abstract. -->
+    <div class="content has-text-justified">
+      Largely due to their implicit nature, neural fields lack a direct mechanism for filtering, as Fourier analysis from discrete signal processing is not directly applicable to these representations. 
+      Effective filtering of neural fields is critical to enable level-of-detail processing in downstream applications, and support operations that involve sampling the field on regular grids (e.g. marching cubes). 
+      Existing methods that attempt to decompose neural fields in the frequency domain either resort to heuristics or require extensive modifications to the neural field architecture. 
+      We show that via a simple modification, one can obtain neural fields that are low-pass filtered, and in turn show how this can be exploited to obtain a frequency decomposition of the entire signal. 
+      We demonstrate the validity of our technique by investigating level-of-detail reconstruction, and showing how coarser representations can be computed effectively.
+    </div>
 
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
+    <hr>
+  
+    <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <h2 class="title is-3">Main Idea</h2>
+
+        <img src="data/pipeline.png" width="70%"></img>
+      </div>
+    </div>
+
+
+    <div class="content has-text-justified">
+      Our core insight is that by regularly <b>sampling</b> a field, and then <b>interpolating</b> this field with a band-limited kernel can be seen as a <b>low-pass filtering operation</b>.
+    </div>
+
+    <video id="refdir" width="100%" playsinline autoplay loop muted>
+      <source src="data/BANF_1d.mp4" type="video/mp4" />
+    </video>
+
+    <br>
+    Left – training a neural field to a 1D signal, and <b>sampling the result a-posteriori</b> on a regular lattice. <br>
+    Right – Our approach trains the neural field in a <b>sampling-aware</b> manner: predicting the field values directly at the grid sample locations and then (linearly) interpolating. 
+    This enables us to control the frequency bandwidth of the prediction by simply changing the grid's sampling frequency. <br>
+    Note that this method of controlling frequency bandwidth is <b>agnostic to architecture</b> and can be applied to any neural field model.
+    
+    <hr>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Applications</h2>
+        We demonstrate the efficacy of our method in frequency decomposition with distinct applications: 
+        2D image fitting, 3D shape fitting with signed distance field supervision,
+         3D shape recovery from inverse rendering and novel view synthesis
+         <br>
+         <br>
+        <h4 class="title is-4">2D Reconstruction</h4>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        Multi-scale reconstruction and Fourier spectra of BANF compared against BACON.
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <img src="data/2D.jpg" width="60%"></img>
+    </div>
+
+    <br>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        By changing the interpolation kernel we can control the frequency cut in the Fourier domain. <br>
+        <b>Sinc</b> interpolation is more accurate for controlling the frequency cut-off, but it is more computationally expensive.
+        <b>Linear</b> kernel is faster but less accurate (although allows to get rid of Gibbs ringing artifacts).
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <img src="data/2D_kernels.png" width="40%"></img>
+    </div>
+
+    <br>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <hr>
+        <h4 class="title is-4">3D Reconstruction</h4>
+        <br>
+        We demonstrate that our method can directly decompose frequencies of 3D shapes. 
+        Even in complex scenarios where only 2D images of a 3D signal are available. Results of 3D shape fitting:
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <img src="data/dragon.png" width="60%"></img>
+      </div>
+    </div>
+
+    <!-- <div class="columns is-centered has-text-centered"> 
+      <model-viewer alt="CAM row 1"
+                        shadow-intensity="2" 
+                        camera-controls
+                        touch-action="pan-y"
+                        camera-orbit="10deg 85deg 2570mm"
+                        auto-rotate tone-mapping="commerce"
+                        src="data/baseline_dragon_bacon/baseline_32.glb">
+      </model-viewer>
+    </div> -->
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <hr>
+        <h4 class="title is-4">Novel View Synthesis</h4>
+      </div>
+    </div>
+
+      <video id="refdir" width="100%" playsinline autoplay loop muted>
+        <source src="data/lego_render.m4v" type="video/mp4" /> <br>
+      </video>
+    <br>
+    <br>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          Our method enables frequency decomposition of 3D scenes <b>without explicit supervision of downsampled images</b> during training. 
+          Our method sometimes produces oversmooth results due to the use of a linear kernel for interpolation.
         </div>
       </div>
-    </div> -->
-    <!--/ Paper video. -->
-  </div>
+      
+
+</div>
 </section>
 
 
-<section class="section">
+
+<!-- <section class="section">
   <div class="container is-max-desktop">
 
     <div class="columns is-centered">
 
-    <!-- <div class="columns is-centered">
+   <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Related Links</h2>
 
@@ -282,11 +383,11 @@ We demonstrate the validity of our technique by investigating level-of-detail re
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{ahan2023banf,
+    <pre><code>@article{ahan2024banf,
   author    = {Shabanov, Ahan and Govindarajan, Shrisudhan and Reading, Cody and Goli, Lily and Rebain, Daniel and Moo Yi, Kwang and Tagliasacchi, Andrea},
   title     = {BANF: Band-limited Neural Fields for Levels of Detail Reconstruction},
-  journal   = {},
-  year      = {},
+  journal   = {Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2024},
 }</code></pre>
   </div>
 </section>

@@ -303,11 +303,11 @@
       </div>
     </div>
 
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <img src="data/dragon.png" width="60%"></img>
       </div>
-    </div>
+    </div> -->
 
     <!-- <div class="columns is-centered has-text-centered"> 
       <model-viewer alt="CAM row 1"
@@ -316,9 +316,96 @@
                         touch-action="pan-y"
                         camera-orbit="10deg 85deg 2570mm"
                         auto-rotate tone-mapping="commerce"
-                        src="data/baseline_dragon_bacon/baseline_32.glb">
+                        src="backup/baseline_dragon_bacon/baseline_32.glb">
       </model-viewer>
     </div> -->
+
+    <div class="columns is-centered has-text-centered">
+    <table class="tbl_video">
+
+      <tr>   
+          <td>
+              <model-viewer alt="CAM row 1"
+                  shadow-intensity="1" 
+                  touch-action="pan-y"
+                  camera-controls
+                  camera-orbit="10deg 85deg 2570mm"
+                  auto-rotate 
+                  src="data/ours_dragon_bacon/ours_32.glb">
+                </model-viewer>
+          </td>
+          <td>
+              <model-viewer alt="CAM row 1"
+                  shadow-intensity="1" 
+                  touch-action="pan-y"
+                  camera-controls
+                  camera-orbit="10deg 85deg 2570mm"
+                  auto-rotate 
+                  src="data/baseline_dragon_bacon/baseline_32.glb">
+                </model-viewer>
+          </td>
+      </tr>
+      <tr>
+          <td width=50.00% style="font-size: 15px;"> Ours@32 </td>
+          <td width=50.00% style="font-size: 15px;"> iNGP@32 </td>
+      </tr>
+
+      <tr>   
+        <td>
+            <model-viewer alt="CAM row 1"
+                shadow-intensity="1" 
+                touch-action="pan-y"
+                camera-controls
+                camera-orbit="10deg 85deg 2570mm"
+                auto-rotate 
+                src="data/ours_dragon_bacon/ours_64.glb">
+              </model-viewer>
+        </td>
+        <td>
+            <model-viewer alt="CAM row 1"
+                shadow-intensity="1" 
+                touch-action="pan-y"
+                camera-controls
+                camera-orbit="10deg 85deg 2570mm"
+                auto-rotate
+                src="data/baseline_dragon_bacon/baseline_64.glb">
+              </model-viewer>
+        </td>
+    </tr>
+    <tr>
+        <td width=60.00% style="font-size: 15px;"> Ours@64 </td>
+        <td width=50.00% style="font-size: 15px;"> iNGP@64 </td>
+    </tr>
+
+    <tr>   
+      <td>
+          <model-viewer alt="CAM row 1"
+              shadow-intensity="1" 
+              touch-action="pan-y"
+              camera-controls
+              camera-orbit="10deg 85deg 2570mm"
+              auto-rotate
+              src="data/ours_dragon_bacon/ours_128.glb">
+            </model-viewer>
+      </td>
+      <td>
+          <model-viewer alt="CAM row 1"
+              shadow-intensity="1" 
+              touch-action="pan-y"
+              camera-controls
+              camera-orbit="10deg 85deg 2570mm"
+              auto-rotate
+              src="data/baseline_dragon_bacon/baseline_128.glb">
+            </model-viewer>
+      </td>
+  </tr>
+  <tr>
+      <td width=60.00% style="font-size: 15px;"> Ours@128 </td>
+      <td width=50.00% style="font-size: 15px;"> iNGP@128 </td>
+  </tr>
+
+  </table>
+</div>
 
 
     <div class="columns is-centered has-text-centered">

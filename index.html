@@ -244,17 +244,27 @@
     <div class="content has-text-justified">
       Our core insight is that by regularly <b>sampling</b> a field, and then <b>interpolating</b> this field with a band-limited kernel can be seen as a <b>low-pass filtering operation</b>.
     </div>
+    <br>
 
     <video id="refdir" width="100%" playsinline autoplay loop muted>
       <source src="data/BANF_1d.mp4" type="video/mp4" />
     </video>
 
     <br>
-    Left – training a neural field to a 1D signal, and <b>sampling the result a-posteriori</b> on a regular lattice. <br>
+    
+    <!-- Left – training a neural field to a 1D signal, and <b>sampling the result a-posteriori</b> on a regular lattice. <br>
     Right – Our approach trains the neural field in a <b>sampling-aware</b> manner: predicting the field values directly at the grid sample locations and then (linearly) interpolating. 
     This enables us to control the frequency bandwidth of the prediction by simply changing the grid's sampling frequency. <br>
-    Note that this method of controlling frequency bandwidth is <b>agnostic to architecture</b> and can be applied to <b>any</b> neural field model.
+    Note that this method of controlling frequency bandwidth is <b>agnostic to architecture</b> and can be applied to <b>any</b> neural field model. -->
+
+    <div class="content has-text-justified">
+      Left – training a neural field to a 1D signal, and sampling the result a-posteriori on a regular lattice. <br>
+    Right – Our approach trains the neural field in a sampling-aware manner: predicting the field values directly at the grid sample locations and then (linearly) interpolating. 
+    This enables us to control the frequency bandwidth of the prediction by simply changing the grid's sampling frequency.
+    Note that this method of controlling frequency bandwidth is agnostic to architecture and can be applied to any neural field model.
+    </div>
     <br>
+
 
     <div class="columns is-centered has-text-centered">
     <video id="refdir" width="50%" playsinline autoplay loop muted>
@@ -262,6 +272,11 @@
     </video>
     </div>
 
+    <div class="content has-text-justified">
+    By adjusting the grid resolution, we can control the specific frequency band that our model is capable of representing, 
+    effectively creating a low-pass filtered signal. 
+    Additionally, by modifying the interpolation kernel, we can directly influence how a neural field behaves in the Fourier domain.
+    </div>
     <hr>
 
     <div class="columns is-centered has-text-centered">

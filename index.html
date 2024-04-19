@@ -258,10 +258,10 @@
     Note that this method of controlling frequency bandwidth is <b>agnostic to architecture</b> and can be applied to <b>any</b> neural field model. -->
 
     <div class="content has-text-justified">
-      Left – training a neural field to a 1D signal, and sampling the result a-posteriori on a regular lattice. <br>
-    Right – Our approach trains the neural field in a sampling-aware manner: predicting the field values directly at the grid sample locations and then (linearly) interpolating. 
-    This enables us to control the frequency bandwidth of the prediction by simply changing the grid's sampling frequency.
-    Note that this method of controlling frequency bandwidth is agnostic to architecture and can be applied to any neural field model.
+      Left – training a neural field to a 1D signal, and <b>sampling the result a-posteriori</b> on a regular lattice. <br>
+      Right – Our approach trains the neural field in a <b>sampling-aware</b> manner: predicting the field values directly at the grid sample locations and then (linearly) interpolating. 
+      This enables us to control the frequency bandwidth of the prediction by simply changing the grid's sampling frequency. <br>
+      Note that this method of controlling frequency bandwidth is <b>agnostic to architecture</b> and can be applied to <b>any</b> neural field model.
     </div>
     <br>
 

@@ -2,6 +2,8 @@
 
 This is the repository that contains BANF webpage.
 
+The code will be released before 1st of May
+
 If you find BANF useful for your work please cite:
 ```
 @article{ahan2023banf,

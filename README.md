@@ -14,7 +14,7 @@ We present our results in several settings. You can find more details in the res
 
 * [Multiview 3D reconstruction](3D_reconstruction/README.md)
 
-<img src="3D_reconstruction/banf/teaser.png" width="720">
+<img src="3D_reconstruction/banf/teaser.png" width="550">
 
 ---
 

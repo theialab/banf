@@ -1,17 +1,42 @@
-# BANF
+# BANF: Band-limited Neural Fields for Levels of Detail Reconstruction
 
-This is the repository that contains BANF webpage.
+| [Project Page](https://theialab.github.io/banf/) | [Paper](https://arxiv.org/abs/2404.13024) |
 
-The code will be released before 1st of May
+This is the official repository for the paper "Band-limited Neural Fields for Levels of Detail Reconstruction" (CVPR 2024).
 
-If you find BANF useful for your work please cite:
+We present our results in several settings. You can find more details in the respective directories.
+* [NeRFing](NeRFing/README.md)
+
+<video width="520" controls>
+  <source src="NeRFing/vis_data/NeRFing.m4v" type="video/mp4">
+</video>
+
+
+---
+
+* [Multiview 3D reconstruction](3D_reconstruction/README.md)
+
+<img src="3D_reconstruction/banf/teaser.png" width="520">
+
+---
+
+* [2D Image Fitting](2D_fitting/README.md)
+
+<video width="520" controls>
+  <source src="2D_fitting/vis_data/2d_fitting.mp4" type="video/mp4">
+</video>
+
+
+# Credits
+This project is built on top of [SDFstudio](https://github.com/autonomousvision/sdfstudio) and [Kaolin Wisp](https://github.com/NVIDIAGameWorks/kaolin-wisp). We thank the maintainers for their contribution to the community!
+
+# BibTeX
+If you find BANF useful, please consider citing:
 ```
 @article{ahan2023banf,
   author    = {Shabanov, Ahan and Govindarajan, Shrisudhan and Reading, Cody and Goli, Lily and Rebain, Daniel and Moo Yi, Kwang and Tagliasacchi, Andrea},
   title     = {BANF: Band-limited Neural Fields for Levels of Detail Reconstruction},
-  journal   = {CVPR},
   year      = {2024},
+  booktitle   = {The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
 }
 ```
-
-This webpage template is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> 

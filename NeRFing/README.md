@@ -1,8 +1,6 @@
 # BANF @ NeRFing
 
-<video width="920" controls>
-  <source src="vis_data/NeRFing.m4v" type="video/mp4">
-</video>
+<img src="vis_data/NeRFing.gif" width="550">
 
 ## Installation
 Please note that this implementation is heavily based on [Kaolin Wisp repository](https://github.com/NVIDIAGameWorks/kaolin-wisp). To install all necessary dependencies, please follow their [installation guide](https://kaolin-wisp.readthedocs.io/en/latest/pages/install.html).

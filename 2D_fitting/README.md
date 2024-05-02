@@ -1,8 +1,7 @@
 # BANF @ 2D Fitting
 
-<video width="920" controls>
-  <source src="vis_data/2d_fitting.mp4" type="video/mp4">
-</video>
+
+<img src="vis_data/2d_fitting.gif" width="550">
 
 ## Installation
 Run 

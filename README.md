@@ -7,24 +7,20 @@ This is the official repository for the paper "Band-limited Neural Fields for Le
 We present our results in several settings. You can find more details in the respective directories.
 * [NeRFing](NeRFing/README.md)
 
-<video width="520" controls>
-  <source src="NeRFing/vis_data/NeRFing.m4v" type="video/mp4">
-</video>
+<img src="NeRFing/vis_data/NeRFing.gif" width="550">
 
 
 ---
 
 * [Multiview 3D reconstruction](3D_reconstruction/README.md)
 
-<img src="3D_reconstruction/banf/teaser.png" width="520">
+<img src="3D_reconstruction/banf/teaser.png" width="720">
 
 ---
 
 * [2D Image Fitting](2D_fitting/README.md)
 
-<video width="520" controls>
-  <source src="2D_fitting/vis_data/2d_fitting.mp4" type="video/mp4">
-</video>
+<img src="2D_fitting/vis_data/2d_fitting.gif" width="550">
 
 
 # Credits
